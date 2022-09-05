@@ -1,19 +1,17 @@
 /// <reference types="node" />
 import * as web3 from '@solana/web3.js';
-import * as beet from '@metaplex-foundation/beet';
 import * as beetSolana from '@metaplex-foundation/beet-solana';
+import * as beet from '@metaplex-foundation/beet';
 export declare type CandyGuardArgs = {
     base: web3.PublicKey;
     bump: number;
     authority: web3.PublicKey;
-    features: beet.bignum;
 };
 export declare const candyGuardDiscriminator: number[];
 export declare class CandyGuard implements CandyGuardArgs {
     readonly base: web3.PublicKey;
     readonly bump: number;
     readonly authority: web3.PublicKey;
-    readonly features: beet.bignum;
     private constructor();
     static fromArgs(args: CandyGuardArgs): CandyGuard;
     static fromAccountInfo(accountInfo: web3.AccountInfo<Buffer>, offset?: number): [CandyGuard, number];
@@ -22,7 +20,6 @@ export declare class CandyGuard implements CandyGuardArgs {
         base: any;
         bump: any;
         authority: any;
-        features: any;
         accountDiscriminator: any;
     }>;
     static deserialize(buf: Buffer, offset?: number): [CandyGuard, number];
@@ -34,9 +31,6 @@ export declare class CandyGuard implements CandyGuardArgs {
         base: string;
         bump: number;
         authority: string;
-        features: number | {
-            toNumber: () => number;
-        };
     };
 }
 export declare const candyGuardBeet: beet.BeetStruct<CandyGuard, CandyGuardArgs & {

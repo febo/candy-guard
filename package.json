@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "programVersion": "0.0.1",
   "description": "MPL Candy Guard JavaScript API. This MPL package is for the current generation of the Candy Guard",
-  "main": "dist/src/mpl-candy-guard.js",
-  "types": "dist/src/mpl-candy-guard.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "check:publish-ready": "yarn build && yarn test",
     "preversion": "yarn check:publish-ready",
@@ -25,8 +25,11 @@
     "fix:prettier": "prettier --write src/",
     "fix": "yarn fix:lint && yarn fix:prettier"
   },
+  "directories": {
+    "dist": "./dist/src/"
+  },
   "files": [
-    "/dist"
+    "dist/**/*"
   ],
   "publishConfig": {
     "access": "public",

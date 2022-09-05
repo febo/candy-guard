@@ -2,8 +2,9 @@ import * as beet from '@metaplex-foundation/beet';
 import * as web3 from '@solana/web3.js';
 export declare type MintInstructionArgs = {
     creatorBump: number;
+    mintArgs: Uint8Array;
 };
-export declare const mintStruct: beet.BeetArgsStruct<MintInstructionArgs & {
+export declare const mintStruct: beet.FixableBeetArgsStruct<MintInstructionArgs & {
     instructionDiscriminator: number[];
 }>;
 export declare type MintInstructionAccounts = {

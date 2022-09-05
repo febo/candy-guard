@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.errorFromName = exports.errorFromCode = exports.AfterEndSettingsMintAmountError = exports.AfterEndSettingsDateError = exports.GatewayTokenInvalidError = exports.NoWhitelistTokenError = exports.TokenBurnFailedError = exports.MissingRequiredSignatureError = exports.NotEnoughTokensError = exports.TokenTransferFailedError = exports.NotEnoughSOLError = exports.MintNotLiveError = exports.MissingCollectionInstructionError = exports.MintNotLastTransactionError = exports.CollectionUpdateAuthorityKeyMismatchError = exports.MissingCollectionAccountsError = exports.CollectionKeyMismatchError = exports.NumericalOverflowErrorError = exports.MissingRemainingAccountError = exports.UninitializedError = exports.IncorrectOwnerError = exports.DataIncrementLimitExceededError = exports.PublicKeyMismatchError = exports.DeserializationErrorError = exports.InvalidAccountSizeError = void 0;
+exports.errorFromName = exports.errorFromCode = exports.AllowedMintLimitReachedError = exports.MissingAllowedListProofError = exports.AddressNotFoundInAllowedListError = exports.InvalidMintTimeError = exports.AfterEndSettingsMintAmountError = exports.AfterEndSettingsDateError = exports.GatewayTokenInvalidError = exports.NoWhitelistTokenError = exports.TokenBurnFailedError = exports.MissingRequiredSignatureError = exports.NotEnoughTokensError = exports.TokenTransferFailedError = exports.NotEnoughSOLError = exports.MintNotLiveError = exports.MissingCollectionInstructionError = exports.MintNotLastTransactionError = exports.CollectionUpdateAuthorityKeyMismatchError = exports.MissingCollectionAccountsError = exports.CollectionKeyMismatchError = exports.NumericalOverflowErrorError = exports.MissingRemainingAccountError = exports.UninitializedError = exports.IncorrectOwnerError = exports.DataIncrementLimitExceededError = exports.PublicKeyMismatchError = exports.DeserializationErrorError = exports.InvalidAccountSizeError = void 0;
 const createErrorFromCodeLookup = new Map();
 const createErrorFromNameLookup = new Map();
 class InvalidAccountSizeError extends Error {
@@ -302,6 +302,58 @@ class AfterEndSettingsMintAmountError extends Error {
 exports.AfterEndSettingsMintAmountError = AfterEndSettingsMintAmountError;
 createErrorFromCodeLookup.set(0x1786, () => new AfterEndSettingsMintAmountError());
 createErrorFromNameLookup.set('AfterEndSettingsMintAmount', () => new AfterEndSettingsMintAmountError());
+class InvalidMintTimeError extends Error {
+    constructor() {
+        super('Current time is not within the allowed mint time');
+        this.code = 0x1787;
+        this.name = 'InvalidMintTime';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, InvalidMintTimeError);
+        }
+    }
+}
+exports.InvalidMintTimeError = InvalidMintTimeError;
+createErrorFromCodeLookup.set(0x1787, () => new InvalidMintTimeError());
+createErrorFromNameLookup.set('InvalidMintTime', () => new InvalidMintTimeError());
+class AddressNotFoundInAllowedListError extends Error {
+    constructor() {
+        super('Address not found on the allowed list');
+        this.code = 0x1788;
+        this.name = 'AddressNotFoundInAllowedList';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, AddressNotFoundInAllowedListError);
+        }
+    }
+}
+exports.AddressNotFoundInAllowedListError = AddressNotFoundInAllowedListError;
+createErrorFromCodeLookup.set(0x1788, () => new AddressNotFoundInAllowedListError());
+createErrorFromNameLookup.set('AddressNotFoundInAllowedList', () => new AddressNotFoundInAllowedListError());
+class MissingAllowedListProofError extends Error {
+    constructor() {
+        super('Missing allowed list proof');
+        this.code = 0x1789;
+        this.name = 'MissingAllowedListProof';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, MissingAllowedListProofError);
+        }
+    }
+}
+exports.MissingAllowedListProofError = MissingAllowedListProofError;
+createErrorFromCodeLookup.set(0x1789, () => new MissingAllowedListProofError());
+createErrorFromNameLookup.set('MissingAllowedListProof', () => new MissingAllowedListProofError());
+class AllowedMintLimitReachedError extends Error {
+    constructor() {
+        super('The maximum number of allowed mints was reached');
+        this.code = 0x178a;
+        this.name = 'AllowedMintLimitReached';
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, AllowedMintLimitReachedError);
+        }
+    }
+}
+exports.AllowedMintLimitReachedError = AllowedMintLimitReachedError;
+createErrorFromCodeLookup.set(0x178a, () => new AllowedMintLimitReachedError());
+createErrorFromNameLookup.set('AllowedMintLimitReached', () => new AllowedMintLimitReachedError());
 function errorFromCode(code) {
     const createError = createErrorFromCodeLookup.get(code);
     return createError != null ? createError() : null;

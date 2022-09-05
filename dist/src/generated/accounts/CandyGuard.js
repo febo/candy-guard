@@ -25,18 +25,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.candyGuardBeet = exports.CandyGuard = exports.candyGuardDiscriminator = void 0;
 const web3 = __importStar(require("@solana/web3.js"));
-const beet = __importStar(require("@metaplex-foundation/beet"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
+const beet = __importStar(require("@metaplex-foundation/beet"));
 exports.candyGuardDiscriminator = [44, 207, 199, 184, 112, 103, 34, 181];
 class CandyGuard {
-    constructor(base, bump, authority, features) {
+    constructor(base, bump, authority) {
         this.base = base;
         this.bump = bump;
         this.authority = authority;
-        this.features = features;
     }
     static fromArgs(args) {
-        return new CandyGuard(args.base, args.bump, args.authority, args.features);
+        return new CandyGuard(args.base, args.bump, args.authority);
     }
     static fromAccountInfo(accountInfo, offset = 0) {
         return CandyGuard.deserialize(accountInfo.data, offset);
@@ -74,18 +73,6 @@ class CandyGuard {
             base: this.base.toBase58(),
             bump: this.bump,
             authority: this.authority.toBase58(),
-            features: (() => {
-                const x = this.features;
-                if (typeof x.toNumber === 'function') {
-                    try {
-                        return x.toNumber();
-                    }
-                    catch (_) {
-                        return x;
-                    }
-                }
-                return x;
-            })(),
         };
     }
 }
@@ -95,6 +82,5 @@ exports.candyGuardBeet = new beet.BeetStruct([
     ['base', beetSolana.publicKey],
     ['bump', beet.u8],
     ['authority', beetSolana.publicKey],
-    ['features', beet.u64],
 ], CandyGuard.fromArgs, 'CandyGuard');
 //# sourceMappingURL=CandyGuard.js.map

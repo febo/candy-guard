@@ -16,6 +16,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.accountProviders = void 0;
 __exportStar(require("./CandyGuard"), exports);
+__exportStar(require("./MintCounter"), exports);
+const MintCounter_1 = require("./MintCounter");
 const CandyGuard_1 = require("./CandyGuard");
-exports.accountProviders = { CandyGuard: CandyGuard_1.CandyGuard };
+exports.accountProviders = { MintCounter: MintCounter_1.MintCounter, CandyGuard: CandyGuard_1.CandyGuard };
 //# sourceMappingURL=index.js.map

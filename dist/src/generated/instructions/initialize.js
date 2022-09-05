@@ -31,9 +31,7 @@ exports.initializeStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['data', CandyGuardData_1.candyGuardDataBeet],
 ], 'InitializeInstructionArgs');
-exports.initializeInstructionDiscriminator = [
-    175, 175, 109, 31, 13, 152, 155, 237,
-];
+exports.initializeInstructionDiscriminator = [175, 175, 109, 31, 13, 152, 155, 237];
 function createInitializeInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
     var _a;
     const [data] = exports.initializeStruct.serialize({

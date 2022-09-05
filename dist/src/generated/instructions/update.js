@@ -31,9 +31,7 @@ exports.updateStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['data', CandyGuardData_1.candyGuardDataBeet],
 ], 'UpdateInstructionArgs');
-exports.updateInstructionDiscriminator = [
-    219, 200, 88, 176, 158, 63, 253, 127,
-];
+exports.updateInstructionDiscriminator = [219, 200, 88, 176, 158, 63, 253, 127];
 function createUpdateInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
     var _a;
     const [data] = exports.updateStruct.serialize({

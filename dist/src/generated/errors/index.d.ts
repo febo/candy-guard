@@ -117,6 +117,26 @@ export declare class AfterEndSettingsMintAmountError extends Error {
     readonly name: string;
     constructor();
 }
+export declare class InvalidMintTimeError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class AddressNotFoundInAllowedListError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class MissingAllowedListProofError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class AllowedMintLimitReachedError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
 export declare function errorFromCode(code: number): MaybeErrorWithCode;
 export declare function errorFromName(name: string): MaybeErrorWithCode;
 export {};

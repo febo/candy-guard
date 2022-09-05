@@ -27,13 +27,12 @@ exports.createMintInstruction = exports.mintInstructionDiscriminator = exports.m
 const splToken = __importStar(require("@solana/spl-token"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
-exports.mintStruct = new beet.BeetArgsStruct([
+exports.mintStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['creatorBump', beet.u8],
+    ['mintArgs', beet.bytes],
 ], 'MintInstructionArgs');
-exports.mintInstructionDiscriminator = [
-    51, 57, 225, 47, 182, 146, 137, 166,
-];
+exports.mintInstructionDiscriminator = [51, 57, 225, 47, 182, 146, 137, 166];
 function createMintInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
     var _a, _b, _c;
     const [data] = exports.mintStruct.serialize({

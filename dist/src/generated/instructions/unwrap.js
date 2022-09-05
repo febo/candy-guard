@@ -27,9 +27,7 @@ exports.createUnwrapInstruction = exports.unwrapInstructionDiscriminator = expor
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 exports.unwrapStruct = new beet.BeetArgsStruct([['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]], 'UnwrapInstructionArgs');
-exports.unwrapInstructionDiscriminator = [
-    126, 175, 198, 14, 212, 69, 50, 44,
-];
+exports.unwrapInstructionDiscriminator = [126, 175, 198, 14, 212, 69, 50, 44];
 function createUnwrapInstruction(accounts, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
     const [data] = exports.unwrapStruct.serialize({
         instructionDiscriminator: exports.unwrapInstructionDiscriminator,

@@ -25,22 +25,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.candyGuardDataBeet = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
-const BotTax_1 = require("./BotTax");
-const LiveDate_1 = require("./LiveDate");
-const Lamports_1 = require("./Lamports");
-const SplToken_1 = require("./SplToken");
-const ThirdPartySigner_1 = require("./ThirdPartySigner");
-const Whitelist_1 = require("./Whitelist");
-const Gatekeeper_1 = require("./Gatekeeper");
-const EndSettings_1 = require("./EndSettings");
+const GuardSet_1 = require("./GuardSet");
 exports.candyGuardDataBeet = new beet.FixableBeetArgsStruct([
-    ['botTax', beet.coption(BotTax_1.botTaxBeet)],
-    ['liveDate', beet.coption(LiveDate_1.liveDateBeet)],
-    ['lamports', beet.coption(Lamports_1.lamportsBeet)],
-    ['splToken', beet.coption(SplToken_1.splTokenBeet)],
-    ['thirdPartySigner', beet.coption(ThirdPartySigner_1.thirdPartySignerBeet)],
-    ['whitelist', beet.coption(Whitelist_1.whitelistBeet)],
-    ['gatekeeper', beet.coption(Gatekeeper_1.gatekeeperBeet)],
-    ['endSettings', beet.coption(EndSettings_1.endSettingsBeet)],
+    ['default', GuardSet_1.guardSetBeet],
+    ['groups', beet.coption(beet.array(GuardSet_1.guardSetBeet))],
 ], 'CandyGuardData');
 //# sourceMappingURL=CandyGuardData.js.map

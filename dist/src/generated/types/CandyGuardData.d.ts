@@ -1,20 +1,7 @@
 import * as beet from '@metaplex-foundation/beet';
-import { BotTax } from './BotTax';
-import { LiveDate } from './LiveDate';
-import { Lamports } from './Lamports';
-import { SplToken } from './SplToken';
-import { ThirdPartySigner } from './ThirdPartySigner';
-import { Whitelist } from './Whitelist';
-import { Gatekeeper } from './Gatekeeper';
-import { EndSettings } from './EndSettings';
+import { GuardSet } from './GuardSet';
 export declare type CandyGuardData = {
-    botTax: beet.COption<BotTax>;
-    liveDate: beet.COption<LiveDate>;
-    lamports: beet.COption<Lamports>;
-    splToken: beet.COption<SplToken>;
-    thirdPartySigner: beet.COption<ThirdPartySigner>;
-    whitelist: beet.COption<Whitelist>;
-    gatekeeper: beet.COption<Gatekeeper>;
-    endSettings: beet.COption<EndSettings>;
+    default: GuardSet;
+    groups: beet.COption<GuardSet[]>;
 };
 export declare const candyGuardDataBeet: beet.FixableBeetArgsStruct<CandyGuardData>;
