@@ -29,7 +29,6 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 exports.mintStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['creatorBump', beet.u8],
     ['mintArgs', beet.bytes],
 ], 'MintInstructionArgs');
 exports.mintInstructionDiscriminator = [51, 57, 225, 47, 182, 146, 137, 166];
@@ -56,12 +55,7 @@ function createMintInstruction(accounts, args, programId = new web3.PublicKey('g
             isSigner: false,
         },
         {
-            pubkey: accounts.updateAuthority,
-            isWritable: false,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.candyMachineCreator,
+            pubkey: accounts.candyMachineAuthorityPda,
             isWritable: true,
             isSigner: false,
         },
@@ -71,33 +65,48 @@ function createMintInstruction(accounts, args, programId = new web3.PublicKey('g
             isSigner: true,
         },
         {
-            pubkey: accounts.wallet,
+            pubkey: accounts.nftMetadata,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: accounts.metadata,
+            pubkey: accounts.nftMint,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: accounts.mint,
-            isWritable: true,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.mintAuthority,
+            pubkey: accounts.nftMintAuthority,
             isWritable: false,
             isSigner: true,
         },
         {
-            pubkey: accounts.mintUpdateAuthority,
-            isWritable: false,
-            isSigner: true,
+            pubkey: accounts.nftMasterEdition,
+            isWritable: true,
+            isSigner: false,
         },
         {
-            pubkey: accounts.masterEdition,
+            pubkey: accounts.collectionAuthorityRecord,
+            isWritable: false,
+            isSigner: false,
+        },
+        {
+            pubkey: accounts.collectionMint,
+            isWritable: false,
+            isSigner: false,
+        },
+        {
+            pubkey: accounts.collectionMetadata,
             isWritable: true,
+            isSigner: false,
+        },
+        {
+            pubkey: accounts.collectionMasterEdition,
+            isWritable: false,
+            isSigner: false,
+        },
+        {
+            pubkey: accounts.collectionUpdateAuthority,
+            isWritable: false,
             isSigner: false,
         },
         {

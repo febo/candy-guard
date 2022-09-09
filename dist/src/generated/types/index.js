@@ -24,6 +24,7 @@ __exportStar(require("./GuardSet"), exports);
 __exportStar(require("./Lamports"), exports);
 __exportStar(require("./LiveDate"), exports);
 __exportStar(require("./MintLimit"), exports);
+__exportStar(require("./NftPayment"), exports);
 __exportStar(require("./SplToken"), exports);
 __exportStar(require("./ThirdPartySigner"), exports);
 __exportStar(require("./Whitelist"), exports);

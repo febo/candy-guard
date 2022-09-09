@@ -62,11 +62,6 @@ export declare class MintNotLastTransactionError extends Error {
     readonly name: string;
     constructor();
 }
-export declare class MissingCollectionInstructionError extends Error {
-    readonly code: number;
-    readonly name: string;
-    constructor();
-}
 export declare class MintNotLiveError extends Error {
     readonly code: number;
     readonly name: string;
@@ -133,6 +128,11 @@ export declare class MissingAllowedListProofError extends Error {
     constructor();
 }
 export declare class AllowedMintLimitReachedError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class InvalidNFTCollectionPaymentError extends Error {
     readonly code: number;
     readonly name: string;
     constructor();

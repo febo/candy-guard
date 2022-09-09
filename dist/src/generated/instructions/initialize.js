@@ -52,7 +52,7 @@ function createInitializeInstruction(accounts, args, programId = new web3.Public
         {
             pubkey: accounts.authority,
             isWritable: false,
-            isSigner: true,
+            isSigner: false,
         },
         {
             pubkey: accounts.payer,

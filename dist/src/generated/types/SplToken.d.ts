@@ -3,5 +3,6 @@ import * as web3 from '@solana/web3.js';
 export declare type SplToken = {
     amount: beet.bignum;
     tokenMint: web3.PublicKey;
+    destinationAta: web3.PublicKey;
 };
 export declare const splTokenBeet: beet.BeetArgsStruct<SplToken>;

@@ -23,11 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lamportsBeet = void 0;
+exports.nftPaymentBeet = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
-exports.lamportsBeet = new beet.BeetArgsStruct([
-    ['amount', beet.u64],
-    ['destination', beetSolana.publicKey],
-], 'Lamports');
-//# sourceMappingURL=Lamports.js.map
+exports.nftPaymentBeet = new beet.BeetArgsStruct([
+    ['burn', beet.bool],
+    ['requiredCollection', beetSolana.publicKey],
+], 'NftPayment');
+//# sourceMappingURL=NftPayment.js.map

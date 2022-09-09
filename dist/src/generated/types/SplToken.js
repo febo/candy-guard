@@ -29,5 +29,6 @@ const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 exports.splTokenBeet = new beet.BeetArgsStruct([
     ['amount', beet.u64],
     ['tokenMint', beetSolana.publicKey],
+    ['destinationAta', beetSolana.publicKey],
 ], 'SplToken');
 //# sourceMappingURL=SplToken.js.map
