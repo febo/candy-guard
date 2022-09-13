@@ -42,6 +42,21 @@ export declare class NumericalOverflowErrorError extends Error {
     readonly name: string;
     constructor();
 }
+export declare class MissingGroupLabelError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class GroupNotFoundError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
+export declare class LabelExceededLengthError extends Error {
+    readonly code: number;
+    readonly name: string;
+    constructor();
+}
 export declare class CollectionKeyMismatchError extends Error {
     readonly code: number;
     readonly name: string;

@@ -23,12 +23,33 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.candyGuardDataBeet = void 0;
+exports.createWithdrawInstruction = exports.withdrawInstructionDiscriminator = exports.withdrawStruct = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
-const GuardSet_1 = require("./GuardSet");
-const Group_1 = require("./Group");
-exports.candyGuardDataBeet = new beet.FixableBeetArgsStruct([
-    ['default', GuardSet_1.guardSetBeet],
-    ['groups', beet.coption(beet.array(Group_1.groupBeet))],
-], 'CandyGuardData');
-//# sourceMappingURL=CandyGuardData.js.map
+const web3 = __importStar(require("@solana/web3.js"));
+exports.withdrawStruct = new beet.BeetArgsStruct([['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]], 'WithdrawInstructionArgs');
+exports.withdrawInstructionDiscriminator = [183, 18, 70, 156, 148, 109, 161, 34];
+function createWithdrawInstruction(accounts, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
+    const [data] = exports.withdrawStruct.serialize({
+        instructionDiscriminator: exports.withdrawInstructionDiscriminator,
+    });
+    const keys = [
+        {
+            pubkey: accounts.candyGuard,
+            isWritable: true,
+            isSigner: false,
+        },
+        {
+            pubkey: accounts.authority,
+            isWritable: true,
+            isSigner: true,
+        },
+    ];
+    const ix = new web3.TransactionInstruction({
+        programId,
+        keys,
+        data,
+    });
+    return ix;
+}
+exports.createWithdrawInstruction = createWithdrawInstruction;
+//# sourceMappingURL=withdraw.js.map

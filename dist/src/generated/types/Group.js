@@ -23,12 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.candyGuardDataBeet = void 0;
+exports.groupBeet = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const GuardSet_1 = require("./GuardSet");
-const Group_1 = require("./Group");
-exports.candyGuardDataBeet = new beet.FixableBeetArgsStruct([
-    ['default', GuardSet_1.guardSetBeet],
-    ['groups', beet.coption(beet.array(Group_1.groupBeet))],
-], 'CandyGuardData');
-//# sourceMappingURL=CandyGuardData.js.map
+exports.groupBeet = new beet.FixableBeetArgsStruct([
+    ['label', beet.utf8String],
+    ['guards', GuardSet_1.guardSetBeet],
+], 'Group');
+//# sourceMappingURL=Group.js.map

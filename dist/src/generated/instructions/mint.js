@@ -30,6 +30,7 @@ const web3 = __importStar(require("@solana/web3.js"));
 exports.mintStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['mintArgs', beet.bytes],
+    ['label', beet.coption(beet.utf8String)],
 ], 'MintInstructionArgs');
 exports.mintInstructionDiscriminator = [51, 57, 225, 47, 182, 146, 137, 166];
 function createMintInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {

@@ -44,6 +44,7 @@ const GUARDS_SIZE = {
     nftPayment: 33,
 };
 const GUARDS_COUNT = 11;
+const MAX_LABEL_LENGTH = 6;
 function determineGuards(buffer) {
     const enabled = new bn_js_1.BN(beet.u64.read(buffer, 0)).toNumber();
     const guards = [];
@@ -71,8 +72,10 @@ function parseData(buffer) {
     const groups = [];
     let cursor = beet.u32.byteSize + offset;
     for (let i = 0; i < groupsCount; i++) {
-        const { guardSet: group, offset } = parseGuardSet(buffer.subarray(cursor));
-        groups.push(group);
+        const label = buffer.subarray(cursor, cursor + MAX_LABEL_LENGTH).toString();
+        cursor += MAX_LABEL_LENGTH;
+        const { guardSet: guards, offset } = parseGuardSet(buffer.subarray(cursor));
+        groups.push({ label, guards });
         cursor += offset;
     }
     return {

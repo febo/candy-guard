@@ -18,5 +18,6 @@ __exportStar(require("./initialize"), exports);
 __exportStar(require("./mint"), exports);
 __exportStar(require("./unwrap"), exports);
 __exportStar(require("./update"), exports);
+__exportStar(require("./withdraw"), exports);
 __exportStar(require("./wrap"), exports);
 //# sourceMappingURL=index.js.map

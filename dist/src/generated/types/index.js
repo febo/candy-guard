@@ -20,6 +20,7 @@ __exportStar(require("./CandyGuardData"), exports);
 __exportStar(require("./EndSettingType"), exports);
 __exportStar(require("./EndSettings"), exports);
 __exportStar(require("./Gatekeeper"), exports);
+__exportStar(require("./Group"), exports);
 __exportStar(require("./GuardSet"), exports);
 __exportStar(require("./Lamports"), exports);
 __exportStar(require("./LiveDate"), exports);
