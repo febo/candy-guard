@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.errorFromName = exports.errorFromCode = exports.InvalidNFTCollectionPaymentError = exports.AllowedMintLimitReachedError = exports.MissingAllowedListProofError = exports.AddressNotFoundInAllowedListError = exports.InvalidMintTimeError = exports.AfterEndSettingsMintAmountError = exports.AfterEndSettingsDateError = exports.GatewayTokenInvalidError = exports.NoWhitelistTokenError = exports.TokenBurnFailedError = exports.MissingRequiredSignatureError = exports.NotEnoughTokensError = exports.TokenTransferFailedError = exports.NotEnoughSOLError = exports.MintNotLiveError = exports.MintNotLastTransactionError = exports.CollectionUpdateAuthorityKeyMismatchError = exports.MissingCollectionAccountsError = exports.CollectionKeyMismatchError = exports.LabelExceededLengthError = exports.GroupNotFoundError = exports.MissingGroupLabelError = exports.NumericalOverflowErrorError = exports.MissingRemainingAccountError = exports.UninitializedError = exports.IncorrectOwnerError = exports.DataIncrementLimitExceededError = exports.PublicKeyMismatchError = exports.DeserializationErrorError = exports.InvalidAccountSizeError = void 0;
+exports.errorFromName = exports.errorFromCode = exports.InvalidNFTCollectionPaymentError = exports.AllowedMintLimitReachedError = exports.MissingAllowedListProofError = exports.AddressNotFoundInAllowedListError = exports.InvalidMintTimeError = exports.AfterEndSettingsMintAmountError = exports.AfterEndSettingsDateError = exports.GatewayTokenInvalidError = exports.NoWhitelistTokenError = exports.TokenBurnFailedError = exports.MissingRequiredSignatureError = exports.NotEnoughTokensError = exports.TokenTransferFailedError = exports.NotEnoughSOLError = exports.MintNotLiveError = exports.MintNotLastTransactionError = exports.CollectionUpdateAuthorityKeyMismatchError = exports.MissingCollectionAccountsError = exports.CollectionKeyMismatchError = exports.LabelExceededLengthError = exports.GroupNotFoundError = exports.RequiredGroupLabelNotFoundError = exports.NumericalOverflowErrorError = exports.MissingRemainingAccountError = exports.UninitializedError = exports.IncorrectOwnerError = exports.DataIncrementLimitExceededError = exports.PublicKeyMismatchError = exports.DeserializationErrorError = exports.InvalidAccountSizeError = void 0;
 const createErrorFromCodeLookup = new Map();
 const createErrorFromNameLookup = new Map();
 class InvalidAccountSizeError extends Error {
@@ -107,19 +107,19 @@ class NumericalOverflowErrorError extends Error {
 exports.NumericalOverflowErrorError = NumericalOverflowErrorError;
 createErrorFromCodeLookup.set(0x1777, () => new NumericalOverflowErrorError());
 createErrorFromNameLookup.set('NumericalOverflowError', () => new NumericalOverflowErrorError());
-class MissingGroupLabelError extends Error {
+class RequiredGroupLabelNotFoundError extends Error {
     constructor() {
-        super('Missing group label');
+        super('Missing required group label');
         this.code = 0x1778;
-        this.name = 'MissingGroupLabel';
+        this.name = 'RequiredGroupLabelNotFound';
         if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, MissingGroupLabelError);
+            Error.captureStackTrace(this, RequiredGroupLabelNotFoundError);
         }
     }
 }
-exports.MissingGroupLabelError = MissingGroupLabelError;
-createErrorFromCodeLookup.set(0x1778, () => new MissingGroupLabelError());
-createErrorFromNameLookup.set('MissingGroupLabel', () => new MissingGroupLabelError());
+exports.RequiredGroupLabelNotFoundError = RequiredGroupLabelNotFoundError;
+createErrorFromCodeLookup.set(0x1778, () => new RequiredGroupLabelNotFoundError());
+createErrorFromNameLookup.set('RequiredGroupLabelNotFound', () => new RequiredGroupLabelNotFoundError());
 class GroupNotFoundError extends Error {
     constructor() {
         super('Group not found');

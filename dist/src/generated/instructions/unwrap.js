@@ -39,6 +39,11 @@ function createUnwrapInstruction(accounts, programId = new web3.PublicKey('grd1h
             isSigner: false,
         },
         {
+            pubkey: accounts.authority,
+            isWritable: false,
+            isSigner: true,
+        },
+        {
             pubkey: accounts.candyMachine,
             isWritable: true,
             isSigner: false,
@@ -49,7 +54,7 @@ function createUnwrapInstruction(accounts, programId = new web3.PublicKey('grd1h
             isSigner: false,
         },
         {
-            pubkey: accounts.authority,
+            pubkey: accounts.candyMachineAuthority,
             isWritable: false,
             isSigner: true,
         },

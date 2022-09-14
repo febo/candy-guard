@@ -42,7 +42,7 @@ export declare class NumericalOverflowErrorError extends Error {
     readonly name: string;
     constructor();
 }
-export declare class MissingGroupLabelError extends Error {
+export declare class RequiredGroupLabelNotFoundError extends Error {
     readonly code: number;
     readonly name: string;
     constructor();

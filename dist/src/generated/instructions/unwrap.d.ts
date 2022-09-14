@@ -5,9 +5,10 @@ export declare const unwrapStruct: beet.BeetArgsStruct<{
 }>;
 export declare type UnwrapInstructionAccounts = {
     candyGuard: web3.PublicKey;
+    authority: web3.PublicKey;
     candyMachine: web3.PublicKey;
     candyMachineProgram: web3.PublicKey;
-    authority: web3.PublicKey;
+    candyMachineAuthority: web3.PublicKey;
 };
 export declare const unwrapInstructionDiscriminator: number[];
 export declare function createUnwrapInstruction(accounts: UnwrapInstructionAccounts, programId?: web3.PublicKey): web3.TransactionInstruction;
