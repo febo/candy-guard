@@ -32,7 +32,7 @@ exports.initializeStruct = new beet.FixableBeetArgsStruct([
     ['data', CandyGuardData_1.candyGuardDataBeet],
 ], 'InitializeInstructionArgs');
 exports.initializeInstructionDiscriminator = [175, 175, 109, 31, 13, 152, 155, 237];
-function createInitializeInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
+function createInitializeInstruction(accounts, args, programId = new web3.PublicKey('YootGoPnkafgM6C2vdVKE1QWctUVXA1ggSejgJnNQs7')) {
     var _a;
     const [data] = exports.initializeStruct.serialize({
         instructionDiscriminator: exports.initializeInstructionDiscriminator,

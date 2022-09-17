@@ -45,7 +45,7 @@ class MintCounter {
         }
         return MintCounter.fromAccountInfo(accountInfo, 0)[0];
     }
-    static gpaBuilder(programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
+    static gpaBuilder(programId = new web3.PublicKey('YootGoPnkafgM6C2vdVKE1QWctUVXA1ggSejgJnNQs7')) {
         return beetSolana.GpaBuilder.fromStruct(programId, exports.mintCounterBeet);
     }
     static deserialize(buf, offset = 0) {
@@ -75,6 +75,6 @@ class MintCounter {
 exports.MintCounter = MintCounter;
 exports.mintCounterBeet = new beet.BeetStruct([
     ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['count', beet.u32],
+    ['count', beet.u16],
 ], MintCounter.fromArgs, 'MintCounter');
 //# sourceMappingURL=MintCounter.js.map

@@ -20,6 +20,6 @@ __exportStar(require("./accounts"), exports);
 __exportStar(require("./errors"), exports);
 __exportStar(require("./instructions"), exports);
 __exportStar(require("./types"), exports);
-exports.PROGRAM_ADDRESS = 'grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ';
+exports.PROGRAM_ADDRESS = 'YootGoPnkafgM6C2vdVKE1QWctUVXA1ggSejgJnNQs7';
 exports.PROGRAM_ID = new web3_js_1.PublicKey(exports.PROGRAM_ADDRESS);
 //# sourceMappingURL=index.js.map

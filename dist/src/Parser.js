@@ -40,7 +40,7 @@ const GUARDS_SIZE = {
     gatekeeper: 33,
     endSettings: 9,
     allowList: 32,
-    mintLimit: 5,
+    mintLimit: 3,
     nftPayment: 33,
 };
 const GUARDS_COUNT = 11;

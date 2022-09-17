@@ -28,7 +28,7 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 exports.withdrawStruct = new beet.BeetArgsStruct([['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]], 'WithdrawInstructionArgs');
 exports.withdrawInstructionDiscriminator = [183, 18, 70, 156, 148, 109, 161, 34];
-function createWithdrawInstruction(accounts, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
+function createWithdrawInstruction(accounts, programId = new web3.PublicKey('YootGoPnkafgM6C2vdVKE1QWctUVXA1ggSejgJnNQs7')) {
     const [data] = exports.withdrawStruct.serialize({
         instructionDiscriminator: exports.withdrawInstructionDiscriminator,
     });

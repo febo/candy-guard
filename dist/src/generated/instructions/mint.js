@@ -33,7 +33,7 @@ exports.mintStruct = new beet.FixableBeetArgsStruct([
     ['label', beet.coption(beet.utf8String)],
 ], 'MintInstructionArgs');
 exports.mintInstructionDiscriminator = [51, 57, 225, 47, 182, 146, 137, 166];
-function createMintInstruction(accounts, args, programId = new web3.PublicKey('grd1hVewsa8dR1T1JfSFGzQUqgWmc1xXZ3uRRFJJ8XJ')) {
+function createMintInstruction(accounts, args, programId = new web3.PublicKey('YootGoPnkafgM6C2vdVKE1QWctUVXA1ggSejgJnNQs7')) {
     var _a, _b, _c;
     const [data] = exports.mintStruct.serialize({
         instructionDiscriminator: exports.mintInstructionDiscriminator,

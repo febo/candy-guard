@@ -27,6 +27,6 @@ exports.mintLimitBeet = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
 exports.mintLimitBeet = new beet.BeetArgsStruct([
     ['id', beet.u8],
-    ['limit', beet.u32],
+    ['limit', beet.u16],
 ], 'MintLimit');
 //# sourceMappingURL=MintLimit.js.map
