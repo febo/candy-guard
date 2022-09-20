@@ -1,4 +1,4 @@
 export * from './generated';
 export * from './errors';
-export * from './parser';
+export * from './Parser';
 export * from './utils/log';
